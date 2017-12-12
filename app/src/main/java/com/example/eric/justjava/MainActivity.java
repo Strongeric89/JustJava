@@ -2,8 +2,6 @@ package com.example.eric.justjava;
 
 import java.text.NumberFormat;
 import java.util.Locale;
-
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         num ++;
         total = total + pricePerItem;
-        price.setText(NumberFormat.getCurrencyInstance(Locale.UK).format(total));
+        price.setText("Total " + NumberFormat.getCurrencyInstance(Locale.UK).format(total) + "\nThank you!");
         Log.d("eric","" + total);
         quantity.setText("" + num);
 
@@ -55,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
         if(num < 0){
             num = 0;
             total = 0.00;
-            price.setText(NumberFormat.getCurrencyInstance(Locale.UK).format(total));
+            price.setText("Total " + NumberFormat.getCurrencyInstance(Locale.UK).format(total));
             Toast.makeText(MainActivity.this, "you can only select > 0 Quantity",
                     Toast.LENGTH_LONG).show();
 
         }else{
             total = total - pricePerItem;
-            price.setText(NumberFormat.getCurrencyInstance(Locale.UK).format(total));
+            price.setText("Total " + NumberFormat.getCurrencyInstance(Locale.UK).format(total));
         }
 
 
