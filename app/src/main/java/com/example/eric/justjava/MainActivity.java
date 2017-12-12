@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-     
+
         button = (Button) findViewById(R.id.button);
         quantity = (TextView) findViewById(R.id.quantity);
         price = (TextView) findViewById(R.id.price);
@@ -51,17 +51,35 @@ public class MainActivity extends AppCompatActivity {
     public void subQuantity(View view){
 
         num --;
-        total = total - pricePerItem;
 
-        price.setText(NumberFormat.getCurrencyInstance(Locale.UK).format(total));
+        if(num < 0){
+            num = 0;
+            total = 0.00;
+            price.setText(NumberFormat.getCurrencyInstance(Locale.UK).format(total));
+            Toast.makeText(MainActivity.this, "you can only select > 0 Quantity",
+                    Toast.LENGTH_LONG).show();
+
+        }else{
+            total = total - pricePerItem;
+            price.setText(NumberFormat.getCurrencyInstance(Locale.UK).format(total));
+        }
+
+
         Log.d("eric","" + total);
         quantity.setText("" + num);
 
     }
 
     public void orderSubmit(View view){
-        Toast.makeText(MainActivity.this, "your order is " + num + " Coffees. Total " + NumberFormat.getCurrencyInstance(Locale.UK).format(total),
-                Toast.LENGTH_LONG).show();
+        if(num == 0){
+            Toast.makeText(MainActivity.this, "you have not yet selected any quantity",
+                    Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(MainActivity.this, "your order is " + num + " Coffees. Total " + NumberFormat.getCurrencyInstance(Locale.UK).format(total),
+                    Toast.LENGTH_LONG).show();
+        }
+
+
     }
 
 }

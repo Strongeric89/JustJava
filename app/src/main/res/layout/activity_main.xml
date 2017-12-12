@@ -15,33 +15,46 @@
 
     </TextView>
 
-    <Button
-        android:id="@+id/addButton"
+    <LinearLayout
+        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:onClick="addQuantity"
-        ></Button>
+        android:orientation="horizontal">
 
-    <TextView
+        <Button
+            android:id="@+id/subButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:onClick="subQuantity" />
 
-        android:id="@+id/quantity"
-        android:textSize="16sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:text="0">
 
-    </TextView>
 
-    <Button
-        android:id="@+id/subButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:onClick="subQuantity"
-        ></Button>
+        <TextView
+
+            android:id="@+id/quantity"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:text="0">
+
+        </TextView>
+
+
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:onClick="addQuantity"
+            ></Button>
+
+
+    </LinearLayout>
+
+
 
 
 
@@ -73,8 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ORDER"
-        android:onClick="orderSubmit"
-        ></Button>
+        android:onClick="orderSubmit" />
 
 
 </LinearLayout>
