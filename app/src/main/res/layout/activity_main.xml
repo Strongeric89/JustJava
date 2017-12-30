@@ -1,55 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/cup"
     android:orientation="vertical"
     android:padding="20dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textAllCaps="true"
-        android:textSize="16sp"
-        android:text="@string/quantity">
 
-    </TextView>
 
     <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/subButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:onClick="subQuantity" />
-
 
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/name"
+            android:textAllCaps="true"
+            android:textSize="16sp"></TextView>
 
-            android:id="@+id/quantity"
-            android:textSize="16sp"
+        <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:textColor="@color/black"
-            android:text="0">
-
-        </TextView>
-
-
-
-        <Button
-            android:id="@+id/addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:onClick="addQuantity"
-            ></Button>
+            android:textAllCaps="true"
+            android:hint="enter your name"
+            android:textSize="16sp"></EditText>
 
 
     </LinearLayout>
@@ -57,14 +43,119 @@
 
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/toppings"
+        android:textAllCaps="true"
+        android:textSize="16sp"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/whippedCream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cream"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/whippedCream"
+            android:textAllCaps="true"
+            android:textSize="16sp"></TextView>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/chocolate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="chocolate"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/chocolate"
+            android:textAllCaps="true"
+            android:textSize="16sp"></TextView>
+
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:text="@string/quantity"
         android:textAllCaps="true"
-        android:textSize="16sp"
-        android:text="@string/price">
+        android:textSize="16sp">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/subButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="subQuantity"
+            android:text="-" />
+
+
+        <TextView
+
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="16sp">
+
+        </TextView>
+
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addQuantity"
+            android:text="+"></Button>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/orderSumary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/price"
+        android:textAllCaps="true"
+        android:textSize="16sp">
 
     </TextView>
 
@@ -85,8 +176,11 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ORDER"
-        android:onClick="orderSubmit" />
+        android:onClick="orderSubmit"
+        android:text="ORDER" />
+
 
 
 </LinearLayout>
+
+    </ScrollView>
