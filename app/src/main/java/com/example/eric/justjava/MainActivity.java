@@ -3,8 +3,10 @@ package com.example.eric.justjava;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -129,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             orderSummary.setText("Order Summary");
-            Toast.makeText(MainActivity.this, greeting,
-                    Toast.LENGTH_LONG).show();
+
+            Toast.makeText(MainActivity.this, greeting,Toast.LENGTH_LONG).show();
 
         }
 
@@ -161,6 +163,23 @@ public class MainActivity extends AppCompatActivity {
             price.setText(NumberFormat.getCurrencyInstance(Locale.UK).format(total));
         }
 
+    }
+
+    public void send(View view){
+        String [] emails = {"strong.erik@gmail.com"};
+        composeEmail(emails,"Just Java Coffee Order", greeting);
+
+    }
+
+    public void composeEmail(String[] addresses, String subject, String details) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, details);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
 
